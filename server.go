@@ -39,6 +39,10 @@ func (h *SmolMux) GET(path string, handler http.HandlerFunc) {
 	h.Handle(http.MethodGet, path, handler)
 }
 
+func (h *SmolMux) POST(path string, handler http.HandlerFunc) {
+	h.Handle(http.MethodPost, path, handler)
+}
+
 func (h *SmolMux) Handle(method string, path string, handler http.HandlerFunc) {
 	if h.m[path] == nil {
 		h.m[path] = make(MuxMethodEntry)
